@@ -8,6 +8,7 @@ Dependencies
 - [NodeJS](http://nodejs.org/) for parsing JSON responses from JIRA
 - git
 - curl
+- echo
 
 Usage
 -----
