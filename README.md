@@ -5,7 +5,7 @@ Bash scripts to generate CSV lists of git commits, looking up the JIRA issues me
 Dependencies
 ------------
 
-- [NodeJS](http://nodejs.org/)
+- [NodeJS](http://nodejs.org/) for parsing JSON responses from JIRA
 
 Usage
 -----
