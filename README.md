@@ -9,9 +9,16 @@ Dependencies
 - git
 - curl
 - echo
+- date
+- wc
+- head
+- tail
+- etc...
 
 Usage
 -----
+
+### Commit tools
 
 where:
 
@@ -37,8 +44,7 @@ To generate a CSV list with the difference in commits on UPSTREAM and HEAD branc
 ./diff-commits.sh UPSTREAM HEAD JIRA_USER JIRA_PASSWORD JIRA_HOST JIRA_PROTOCOL JIRA_KEY_REGEX
 ```
 
-Output
-------
+#### Output
 
 ```
 "branch","commit_ref","commit_message","jira_url","jira_type","jira_summary"
@@ -52,3 +58,31 @@ Application should have a new feature"
 ```
 
 Note that multiple JIRA issues for the same commit will be listed with line breaks in the corresponding fields
+
+### Release tools
+
+where:
+
+```
+HEAD : the head branch from which all release branches are made (eg. "master")
+RELEASE_BRANCH_PREFIX : the prefix for release branches (eg. "origin/release/")
+VERSION_REGEX : Regular expression to match release versions (eg. "v[0-9]+\\.[0-9]+\\.[0-9]+")
+RELEASE_TAG_PREFIX : the prefix for release tags (eg. "release/")
+RELEASE_REGEX : Regular expression to match the release suffix on tagged versions (eg. "\\.[a-z]")
+```
+
+To generate a CSV summary of stats about all the previous releases matching a process of creating a release branch from HEAD, then repeatedly making changes to stabilise that branch and tagging releases with a suffix.
+
+```
+./release-analysis.sh HEAD RELEASE_BRANCH_PREFIX VERSION_REGEX RELEASE_TAG_PREFIX RELEASE_REGEX
+```
+
+#### Output
+
+```
+"start_date","end_date","version","commit_count","tag_count","days_to_stabilize"
+"2014-09-23T08:31:29+02:00","2014-09-26T12:23:38+02:00","v0.1.7","1","4","3"
+"2014-09-29T12:34:11+02:00","2014-09-29T13:37:38+02:00","v0.1.8","4","3","0"
+
+...
+```
