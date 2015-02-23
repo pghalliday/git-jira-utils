@@ -14,7 +14,7 @@ function get_data {
     end_date=$(echo "$tag_dates" | tail -n 1)
     if [ "$start_date" != "" ]
     then
-      commit_count=$(git log --oneline --before=end_date ${head}..${release_branch_prefix}${version} | wc -l)
+      commit_count=$(git log --oneline --before=$end_date ${head}..${release_branch_prefix}${version} | wc -l)
       start_date_seconds=$(date -d $start_date +%s)
       end_date_seconds=$(date -d $end_date +%s)
       seconds_to_stabilize=$(($end_date_seconds-$start_date_seconds))
