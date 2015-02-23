@@ -67,14 +67,14 @@ where:
 HEAD : the head branch from which all release branches are made (eg. "master")
 RELEASE_BRANCH_PREFIX : the prefix for release branches (eg. "origin/release/")
 VERSION_REGEX : Regular expression to match release versions (eg. "v[0-9]+\\.[0-9]+\\.[0-9]+")
-RELEASE_TAG_PREFIX : the prefix for release tags (eg. "release/")
 RELEASE_REGEX : Regular expression to match the release suffix on tagged versions (eg. "\\.[a-z]")
+RELEASE_TAG_PREFIX : the prefix for release tags (eg. "release/")
 ```
 
 To generate a CSV summary of stats about all the previous releases matching a process of creating a release branch from HEAD, then repeatedly making changes to stabilise that branch and tagging releases with a suffix.
 
 ```
-./release-analysis.sh HEAD RELEASE_BRANCH_PREFIX VERSION_REGEX RELEASE_TAG_PREFIX RELEASE_REGEX
+./release-analysis.sh HEAD RELEASE_BRANCH_PREFIX VERSION_REGEX RELEASE_REGEX RELEASE_TAG_PREFIX
 ```
 
 #### Output

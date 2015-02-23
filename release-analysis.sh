@@ -3,8 +3,8 @@
 head=$1
 release_branch_prefix=$2
 version_regex=$3
-release_tag_prefix=$4
-release_regex=$5
+release_regex=$4
+release_tag_prefix=$5
 
 function get_data {
   git branch -r | grep -Po "^[[:space:]]*${release_branch_prefix}\K${version_regex}$" | while read version; do
