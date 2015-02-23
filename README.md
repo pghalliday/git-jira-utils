@@ -23,25 +23,26 @@ Usage
 where:
 
 ```
-UPSTREAM : The upstream branch (typically a tag or release branch)
+UPSTREAM : The upstream branch (typically a tag or release branch, eg. "origin/release/v0.1.0")
 HEAD : The head branch (typically master)
 JIRA_USER : The JIRA user name (for HTTP Basic Authentication)
 JIRA_PASSWORD : The JIRA password (for HTTP Basic Authentication)
 JIRA_HOST : The JIRA host (eg. jira.myhost.com)
 JIRA_PROTOCOL : The JIRA protocol (eg. https)
 JIRA_KEY_REGEX : Regular expression to use when matching JIRA issue keys (eg. "KEY-[0-9]*")
+BEFORE : the date before which to consider commits (eg. a release date for UPSTREAM - defaults to now)
 ```
 
 To generate a CSV list with all commits on UPSTREAM branch since it was branched from HEAD
 
 ```
-./branch-commits.sh UPSTREAM HEAD JIRA_USER JIRA_PASSWORD JIRA_HOST JIRA_PROTOCOL JIRA_KEY_REGEX
+./branch-commits.sh UPSTREAM HEAD JIRA_USER JIRA_PASSWORD JIRA_HOST JIRA_PROTOCOL JIRA_KEY_REGEX BEFORE
 ```
 
 To generate a CSV list with the difference in commits on UPSTREAM and HEAD branches
 
 ```
-./diff-commits.sh UPSTREAM HEAD JIRA_USER JIRA_PASSWORD JIRA_HOST JIRA_PROTOCOL JIRA_KEY_REGEX
+./diff-commits.sh UPSTREAM HEAD JIRA_USER JIRA_PASSWORD JIRA_HOST JIRA_PROTOCOL JIRA_KEY_REGEX BEFORE
 ```
 
 #### Output
